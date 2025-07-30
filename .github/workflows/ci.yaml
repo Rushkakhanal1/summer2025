@@ -16,7 +16,7 @@ jobs:
 
       - name: "Build and analyze"
         run: |
-          docker login -u rushka12 -p $DOCKERHUB_PAT
+          docker login -u rushka12 p $DOCKERHUB_PAT
           docker build -t rushka12/mywebsite .
           docker push rushka12/mywebsite
         env:
