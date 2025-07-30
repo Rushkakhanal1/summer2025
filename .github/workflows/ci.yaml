@@ -20,8 +20,7 @@ jobs:
           docker build -t rushka12/mywebsite .
           docker push rushka12/mywebsite
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+             DOCKERHUB_PAT: ${{ secrets.DOCKERHUB_PAT }}
 
       - name: "Configure SSH"
         run: |
