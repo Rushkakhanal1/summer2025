@@ -14,13 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: "Build Docker Image"
+      - name: "Build and analyze"
         run: |
           docker login -u rushka12 -p $DOCKERHUB_PAT
           docker build -t rushka12/mywebsite .
           docker push rushka12/mywebsite
         env:
-          DOCKERHUB_PAT: ${{ secrets.DOCKERHUB_PAT }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: "Configure SSH"
         run: |
